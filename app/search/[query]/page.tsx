@@ -5,15 +5,18 @@ import React, { useEffect } from 'react'
 
 const page = () => {
     const { query } = useParams();
-    const {products, getDataFromSupabase} = useSupabase();
+    const {filterData, getFilteredData} = useSupabase();
 
     useEffect(() => {
-        getDataFromSupabase();
+        getFilteredData(query.toString());
     }, []);
-    console.log(products);
+
+    console.log(filterData);
 
     return (
-        <div>{query}</div>
+        <div>
+
+        </div>
     )
 }
 

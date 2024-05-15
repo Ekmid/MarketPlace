@@ -3,6 +3,8 @@ import { supabase } from "../products";
 
 export const useSupabase = () => {
     const [products, setProducts] = useState<any>([]);
+    const [filterData, setFilterData] = useState<any>([]);
+    
     const getDataFromSupabase = async () => {
         let {data, error} = await supabase.from('product').select("*");
         if(data){
@@ -14,5 +16,21 @@ export const useSupabase = () => {
         }
     }
 
-    return {products, getDataFromSupabase}
+    const getFilteredData = async (query:string) => {
+        let {data, error} = await supabase.from('product').select("*").or(`title.ilike.%${query}%, description.ilike.%${query}%, category.ilike.%${query}%`);
+        if(data){
+            setProducts(data);
+            console.log(data);
+        }
+        if(error){
+            console.log(error);
+        }
+    }
+
+    return {
+        products,
+        getDataFromSupabase,
+        filterData,
+        getFilteredData
+    };
 }
