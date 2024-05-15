@@ -39,7 +39,7 @@ const Header = () => {
                         className='w-full p-2 rounded-l-md outline-none text-black'  placeholder='Search Amazon.in' />
                         <div
                         onClick={searchHandler}
-                        className='bg-[#FEBD69] p-2 rounded-r-md'>
+                        className='bg-[#FEBD69] p-2 cursor-pointer hover:bg-[#f19722] rounded-r-md'>
                             <CgSearch className='text-black' size={'24px'} />
                         </div>
                     </div>

@@ -19,7 +19,7 @@ export const useSupabase = () => {
     const getFilteredData = async (query:string) => {
         let {data, error} = await supabase.from('product').select("*").or(`title.ilike.%${query}%, description.ilike.%${query}%, category.ilike.%${query}%`);
         if(data){
-            setProducts(data);
+            setFilterData(data);
             console.log(data);
         }
         if(error){
