@@ -7,11 +7,11 @@ const SingleProduct = ({ singleProduct }: { singleProduct: any }) => {
     return (
         <div className="w-[80%] mx-auto mt-10">
             <div className="flex justify-between">
-                <div>
-                    {
-                        singleProduct.map((product: any) => {
-                            return (
-                                <div className="flex text-black">
+                {
+                    singleProduct.map((product: any) => {
+                        return (
+                            <div className="flex text-black">
+                                <div className="flex">
                                     <div className="bg-gray-100">
                                         <Image className="mix-blend-multiply p-4" src={product.image} width={300} height={300} alt={product.title} />
 
@@ -29,14 +29,13 @@ const SingleProduct = ({ singleProduct }: { singleProduct: any }) => {
                                         </div>
                                     </div>
                                 </div>
-                            )
-                        })
-                    }
-                </div>
-
-                <AddToCartContainer />
+                                <AddToCartContainer product={product}/>
+                            </div>
+                        )
+                    })
+                }
             </div>
-        </div>
+        </div >
     )
 }
 
