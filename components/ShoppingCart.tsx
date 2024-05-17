@@ -1,11 +1,12 @@
 "use client"
-import { useAppSelector } from '@/lib/supabase/hooks/redux'
-import { getCart } from '@/redux/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/lib/supabase/hooks/redux'
+import { getCart, removeFromCart } from '@/redux/cartSlice';
 import Image from 'next/image'
 import React from 'react'
 
 const ShoppingCart = () => {
     const cart = useAppSelector(getCart);
+    const dispatch = useAppDispatch();
     return (
         <div>
             <div className="flex justify-between items-center border-b border-gray-300 py-5">
@@ -24,7 +25,9 @@ const ShoppingCart = () => {
                                 <div className='ml-4'>
                                     <h1 className='font-medium'>{product.title}</h1>
                                     <p className='text-[#007600] font-bold my-1 text-xs'>In Stock</p>
-                                    <h1 className='font-bold text-red-600 cursor-pointer'>REMOVE</h1>
+                                    <h1 onClick={() => {
+                                        dispatch(removeFromCart(product.id))
+                                    }} className='font-bold text-red-600 cursor-pointer'>REMOVE</h1>
                                     <div className='flex text-xl my-4 font-medium items-center justify-between w-fit bg-gray-200 rounded-md px-5 py-1'>
                                         <div className='cursor-pointer mr-4'>-</div>
                                         <div>0</div>

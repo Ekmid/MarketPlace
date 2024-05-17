@@ -16,11 +16,16 @@ const cartSlice = createSlice ({
         //multiply actions
         addToCart:(state, action) => {
             state.cart.push(action.payload);
+        },
+        removeFromCart:(state, action) => {
+            state.cart = state.cart.filter((item:any)=>{
+                return item.id != action.payload;
+            })
         }
     },
 });
 
-export const {addToCart} = cartSlice.actions;
+export const {addToCart, removeFromCart} = cartSlice.actions;
 
 export const getCart = (state: RootState) => state.cart.cart
 
