@@ -61,7 +61,7 @@ const Header = () => {
                         </div>
 
                         <div className='cursor-pointer'>
-                            <p className='relative top-3 left-4'>{cart.length}</p>
+                            <p className='relative top-4 left-4 text-[#f19722]'>{cart.length}</p>
                             <div className='flex '>
                                 <div>
                                     <BiCart size={'40px'} />

@@ -3,9 +3,11 @@ import React from 'react'
 import prime from '../public/prime-logo.png'
 import { useAppDispatch } from '@/lib/supabase/hooks/redux'
 import { addToCart } from '@/redux/cartSlice'
+import { useRouter } from 'next/navigation'
 
 const AddToCartContainer = ({ product }: { product: any }) => {
     const dispatch = useAppDispatch();
+    const router = useRouter();
     return (
         <div className='text-black border border-gray-300 rounded-md h-fit text-sm'>
             <div className='p-4'>
@@ -18,6 +20,7 @@ const AddToCartContainer = ({ product }: { product: any }) => {
 
                 <button onClick={() => {
                     dispatch(addToCart(product));
+                    router.push("/cart");
                 }} className='bg-[#FFD814] w-full rounded-full py-1'>Add to Cart</button>
                 <button className='bg-[#FFA41C] w-full rounded-full py-1 my-2'>Buy Now</button>
 
