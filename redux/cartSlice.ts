@@ -41,10 +41,13 @@ const cartSlice = createSlice ({
                 return item.id === action.payload.id ? {...item, quantity:item.quantity-1} : item;
             })
         },
+        clearAllCart:(state)=>{
+            state.cart = []
+        }
     }
 });
 
-export const {addToCart, removeFromCart, incrementQuantity, decrementQuantity} = cartSlice.actions;
+export const {addToCart, removeFromCart, incrementQuantity, decrementQuantity, clearAllCart} = cartSlice.actions;
 
 export const getCart = (state: RootState) => state.cart.cart
 
