@@ -1,14 +1,15 @@
 "use client"
-import { useAppDispatch, useAppSelector } from '@/lib/supabase/hooks/redux'
-import { getCart, removeFromCart } from '@/redux/cartSlice';
+import { useAppDispatch } from '@/lib/supabase/hooks/redux'
+import { decrementQuantity, incrementQuantity, removeFromCart } from '@/redux/cartSlice';
 import Image from 'next/image'
 import React from 'react'
+import Subtotal from './shared/Subtotal';
 
-const ShoppingCart = () => {
-    const cart = useAppSelector(getCart);
+const ShoppingCart = ({cart, totalPrice}:{cart:any, totalPrice:number}) => {
     const dispatch = useAppDispatch();
+
     return (
-        <div>
+        <div className="w-[70%]">
             <div className="flex justify-between items-center border-b border-gray-300 py-5">
 
                 <h1 className="font-bold text-2xl ">Shopping Cart</h1>
@@ -17,7 +18,7 @@ const ShoppingCart = () => {
             {
                 cart.map((product: any) => {
                     return (
-                        <div className="my-4 flex justify-between">
+                        <div className="py-4 flex justify-between border-b border-gray-200">
                             <div className="flex">
                                 <div>
                                     <Image src={product.image} width={100} height={100} alt={product.title} />
@@ -29,9 +30,17 @@ const ShoppingCart = () => {
                                         dispatch(removeFromCart(product.id))
                                     }} className='font-bold text-red-600 cursor-pointer'>REMOVE</h1>
                                     <div className='flex text-xl my-4 font-medium items-center justify-between w-fit bg-gray-200 rounded-md px-5 py-1'>
-                                        <div className='cursor-pointer mr-4'>-</div>
-                                        <div>0</div>
-                                        <div className='cursor-pointer ml-4'>+</div>
+                                        <div
+                                            onClick={() => {
+                                                product.quantity > 1 && dispatch(decrementQuantity(product));
+                                            }}
+                                            className='cursor-pointer mr-4'>-</div>
+                                        <div>{product.quantity}</div>
+                                        <div
+                                            onClick={() => {
+                                                dispatch(incrementQuantity(product));
+                                            }}
+                                            className='cursor-pointer ml-4'>+</div>
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +52,7 @@ const ShoppingCart = () => {
                     )
                 })
             }
-
+            <Subtotal left={false} length={cart.lenght} totalPrice={totalPrice}/>
         </div>
     )
 }

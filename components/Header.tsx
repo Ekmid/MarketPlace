@@ -32,9 +32,9 @@ const Header = () => {
         <>
             <div className="bg-[#131921] text-white py-1">
                 <div className="flex items-center justify-between w-[90%] mx-auto">
-                    <div className='w-[10%]'>
+                    <Link href={'/'} className='w-[10%]'>
                         <Image src={amazonLogo} alt={"Logo"} width={150} height={150} />
-                    </div>
+                    </Link>
 
                     <div className="flex items-center w-[60%]">
                         <input 
@@ -60,7 +60,7 @@ const Header = () => {
                             <h1 className='font-medium text-sm'>& Orders</h1>
                         </div>
 
-                        <div className='cursor-pointer'>
+                        <Link href={'/cart'} className='cursor-pointer'>
                             <p className='relative top-4 left-4 text-[#f19722]'>{cart.length}</p>
                             <div className='flex '>
                                 <div>
@@ -68,7 +68,7 @@ const Header = () => {
                                 </div>
                                 <h1 className='mt-4'>cart</h1>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
 
