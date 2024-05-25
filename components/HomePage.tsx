@@ -4,7 +4,7 @@ import Image from 'next/image'
 import React, { useEffect } from 'react'
 import CategoryWiseProduct from './shared/CategoryWiseProduct'
 
-const HomePage = ({ product }: { product: any }) => {
+const HomePage = () => {
   const { 
     mensProduct,
     getMensClothing,

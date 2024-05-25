@@ -39,7 +39,7 @@ const Header = () => {
         getUserData();
     }, [])
 
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e:any) => {
         if (e.key === 'Enter') {
             searchHandler();
         }
