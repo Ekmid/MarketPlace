@@ -1,7 +1,6 @@
 "use client"
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import amazonLogo from '../public/amazon-logo-2.webp'
 import logo from '../public/logo.svg'
 import { BiCart } from "react-icons/bi";
 import { CgSearch } from "react-icons/cg";
