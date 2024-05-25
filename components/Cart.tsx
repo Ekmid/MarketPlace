@@ -13,8 +13,8 @@ const Cart = () => {
     });
 
     return (
-        <div className="w-[80%] mx-auto mt-10 text-black">
-            <div className="flex w-full justify-between">
+        <div className="w-[90%] mx-auto mt-10 text-black">
+            <div className="flex w-full phone:flex-col tablet:flex-row">
                 <ShoppingCart cart={cart} totalPrice={totalPrice}/>
                 <ProccedToBuy length={cart.length} totalPrice={totalPrice}/>
             </div>

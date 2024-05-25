@@ -10,7 +10,7 @@ const SearchResult = ({ filterData }: { filterData: any }) => {
                     <p>Price and other details may vary based on product size and color.</p>
                 </div>
 
-                <div className='grid grid-cols-4 gap-2'>
+                <div className='grid desktop:grid-cols-4 laptop:grid-cols-3 tablet:grid-cols-2 phone:grid-cols-1 gap-2'>
                     {
                         filterData?.map((product:any) => {
                             return (

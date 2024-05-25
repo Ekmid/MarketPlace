@@ -11,7 +11,6 @@ const CategoryWiseProduct = ({ product }: { product: any }) => {
 
     return (
         <div className="border border-gray-300 p-2 bg-white">
-            <h1 className='font-bold'>{product.category}</h1>
             <div className='mt-2 h-[250px] overflow-hidden flex items-center justify-center'>
                 <Image
                     className='p-6' src={product.image} width={200} height={150} alt={product.title} />
