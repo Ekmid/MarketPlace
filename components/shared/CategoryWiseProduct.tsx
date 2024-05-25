@@ -5,12 +5,16 @@ import { useAppDispatch } from '@/lib/supabase/hooks/redux'
 import { addToCart } from '@/redux/cartSlice'
 import { useRouter } from 'next/navigation'
 
-const CategoryWiseProduct = ({ product }: { product: any }) => {
+const CategoryWiseProduct = ({ product, router }: { product: any, router:any }) => {
     const dispatch = useAppDispatch();
-    const router = useRouter();
+    const handleClick = () => {
+        router.push(`/product/${product.id}`);
+    };
 
     return (
-        <div className="border border-gray-300 p-2 bg-white">
+        <div 
+        onClick={handleClick}
+        className="border border-gray-300 p-2 bg-white">
             <div className='mt-2 h-[250px] overflow-hidden flex items-center justify-center'>
                 <Image
                     className='p-6' src={product.image} width={200} height={150} alt={product.title} />
@@ -21,7 +25,8 @@ const CategoryWiseProduct = ({ product }: { product: any }) => {
             </div>
             <div className='my-2'>
                 <button
-                    onClick={() => {
+                    onClick={(e) => {
+                        e.stopPropagation();
                         dispatch(addToCart(product))
                         router.push("/cart")
                     }}

@@ -3,6 +3,7 @@ import { useSupabase } from '@/lib/supabase/hooks/useSupabase'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import CategoryWiseProduct from './shared/CategoryWiseProduct'
+import { useRouter } from 'next/navigation'
 
 const HomePage = () => {
   const { 
@@ -21,6 +22,8 @@ const HomePage = () => {
     { category: 'Women\'s Clothing', products: womensProduct }
   ];
 
+  const router = useRouter()
+
   return (
     <div>
       <Image
@@ -36,7 +39,7 @@ const HomePage = () => {
               <div className='my-4 grid desktop:grid-cols-4 laptop:grid-cols-3 tablet:grid-cols-2 gap-2'>
                 {
                   group.products.map((product: any) => (
-                    <CategoryWiseProduct key={product.id} product={product} />
+                    <CategoryWiseProduct key={product.id} product={product} router={router} />
                   ))
                 }
               </div>

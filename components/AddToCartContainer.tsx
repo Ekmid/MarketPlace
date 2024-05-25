@@ -7,7 +7,7 @@ const AddToCartContainer = ({ product }: { product: any }) => {
     const dispatch = useAppDispatch();
     const router = useRouter();
     return (
-        <div className='text-black border border-gray-300 rounded-md h-fit text-sm'>
+        <div className='text-black border border-gray-300 rounded-md h-fit text-sm tablet:mt-0 phone:mt-6'>
             <div className='p-4'>
                 <h1><span className='text-[#147C8F]'>FREE delivery</span> Thutsday, 21 May. <span className='text-[#147C8F]'>Details</span></h1>
                 <h1 className='mt-4'>Or latest delivery Tommorov, 20 May. Order within 15 hrs 53 mins. Details</h1>

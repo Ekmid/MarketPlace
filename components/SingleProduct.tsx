@@ -5,23 +5,23 @@ import AddToCartContainer from './AddToCartContainer'
 
 const SingleProduct = ({ singleProduct }: { singleProduct: any }) => {
     return (
-        <div className="w-[80%] mx-auto mt-10">
+        <div className="w-[90%] mx-auto mt-10">
             <div className="flex justify-between">
                 {
                     singleProduct.map((product: any) => {
                         return (
-                            <div key={product.id} className="flex text-black">
-                                <div className="flex">
-                                    <div className="bg-gray-100">
+                            <div key={product.id} className="flex text-black tablet:flex-row phone:flex-col">
+                                <div className="tablet:flex phone:inline">
+                                    <div className="bg-gray-100 flex justify-center items-center ">
                                         <Image className="mix-blend-multiply p-4" src={product.image} width={300} height={300} alt={product.title} />
 
                                     </div>
-                                    <div className="mx-4 w-[70%]">
-                                        <h1 className="font-bold text-lg ">{product.title}</h1>
-                                        <p className="">{product.description}</p>
+                                    <div className="mx-4 tablet:w-[70%] phone:w-[90%] my-4">
+                                        <h1 className="font-bold tablet:text-lg phone:text-[14px]">{product.title}</h1>
+                                        <p className="my-4 tablet:text-base phone:text-[14px]">{product.description}</p>
                                         <Ratings ratings={product.rating} />
-                                        <h1 className="font-bold text-2xl ">{`$${product.price}`}</h1>
-                                        <div>
+                                        <h1 className="font-bold tablet:text-2xl phone:text-[18px]">{`$${product.price}`}</h1>
+                                        <div className='my-2'>
                                             <h1 className='font-bold text-sm k'>About this item</h1>
                                             <li className="">Beautiful present to your beloved parthner</li>
                                             <li className="">Beautiful present to your beloved parthner</li>
