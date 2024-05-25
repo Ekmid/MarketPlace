@@ -14,7 +14,7 @@ const HomePage = ({ product }: { product: any }) => {
   useEffect(() => {
     getMensClothing();
     getWomensClothing();
-  }, []);
+  }, [getMensClothing, getWomensClothing]);
 
   const groupedProducts = [
     { category: 'Men\'s Clothing', products: mensProduct },

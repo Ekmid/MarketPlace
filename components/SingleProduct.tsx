@@ -10,7 +10,7 @@ const SingleProduct = ({ singleProduct }: { singleProduct: any }) => {
                 {
                     singleProduct.map((product: any) => {
                         return (
-                            <div className="flex text-black">
+                            <div key={product.id} className="flex text-black">
                                 <div className="flex">
                                     <div className="bg-gray-100">
                                         <Image className="mix-blend-multiply p-4" src={product.image} width={300} height={300} alt={product.title} />
